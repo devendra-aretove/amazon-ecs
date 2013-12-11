@@ -106,6 +106,13 @@ module Amazon
       
       self.send_request(opts)
     end    
+    
+    # Search amazon items similar to an item by ASIN no.
+    def self.similar(item_id, opts = {})
+      opts[:operation] = 'SimilarityLookup'
+      opts[:item_id] = item_id
+      self.send_request(opts)
+    end
 
     # Search a browse node by BrowseNodeId
     def self.browse_node_lookup(browse_node_id, opts = {})
